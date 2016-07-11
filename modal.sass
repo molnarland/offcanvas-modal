@@ -1,0 +1,72 @@
+=animate($time:.3s)
+	transition: $time ease-in
+
+//ami mindig igaz rájuk
+#modal, #container
+	position: fixed
+	+animate()
+
+#modal
+	top: 50vh
+	left: 50%
+	padding: 10px
+
+#modal-belso
+	width: 100%
+	height: 100%
+	position: relative
+
+#modal-kilepes
+	position: absolute
+	top: 0
+	right: 0
+	transform: rotate(45deg)
+	cursor: pointer
+
+#kod
+	width: 100%
+	height: 100%
+
+#container
+	background: rgba(0, 0, 0, .5)
+
+
+
+//mikor a modal nem látszódik
+html
+	body
+		transform: scale(1)
+		+animate()
+
+	#modal
+		border-radius: 4px
+		opacity: 0
+		visibility: hidden
+		transform: scale(0.2)
+		transform: translate(-50%, -50%)
+
+	#container
+		visible: hidden
+		opacity: 0
+		z-index: 0
+
+
+//mikor a modal látszódik
+html.modal
+	body
+		transform: scale(0.9)
+		+animate()
+
+	#modal
+		opacity: 1
+		visibility: visible
+		transform: scale(1)
+		transform: translate(-50%, -50%)
+		z-index: 2
+
+	#container
+		visibility: visible
+		z-index: 1
+		opacity: 1
+		width: 100%
+		height: 100%
